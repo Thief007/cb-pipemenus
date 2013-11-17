@@ -58,7 +58,7 @@ elif [[ $1 = '--install-dropbox' ]]; then
         read _ RESPONSE _ <<< $(head -n 1 "$shitTemp")
         
         #if [ $RESPONSE -ne "200" ]; then
-        if [[ RESPONSE != 302 ]]; then
+        if [[ $RESPONSE != 302 && $RESPONSE != 301 ]]; then
             zenity --warning --title='Dropbox Installation' --text 'Error, failed to contact server. Please try again later.'
             exit 1
         else
